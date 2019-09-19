@@ -1,4 +1,6 @@
 set nocompatible
+set encoding=utf-8
+set fileencoding=utf-8
 
 syntax on
 
@@ -10,8 +12,8 @@ if has('gui_running')
   if has('gui_win32')
     " better than Inconsolata, liberation mono (this is what sublime uses)
     set guifont=Consolas:h10
-    colorscheme citrusnberries
   endif
+  colorscheme citrusnberries
 else
 endif
 
