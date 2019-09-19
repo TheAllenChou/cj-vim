@@ -6,8 +6,8 @@ endif
 let g:colors_name = "citrusnberries"
 
 hi Comment guifg=#7DCC66
-hi Constant guifg=#FF77AD
-hi Cursor guifg=slategrey guibg=khaki
+hi Constant guifg=#FF77AD gui=NONE cterm=NONE term=NONE
+hi Cursor guifg=#808080 guibg=#F0F0F0
 hi CursorColumn guibg=gray40
 hi CursorIM gui=None
 hi CursorLine guibg=gray40
@@ -16,8 +16,8 @@ hi DiffChange guibg=darkmagenta
 hi DiffDelete guifg=blue guibg=darkcyan
 hi DiffText guibg=red
 hi Directory guifg=cyan
-hi Error guifg=white guibg=red
-hi ErrorMsg guifg=white guibg=red
+hi Error guifg=#A00000
+hi ErrorMsg guifg=#A00000
 hi FoldColumn guifg=gray80 guibg=gray30
 hi Folded guifg=gray80 guibg=gray30
 hi Identifier guifg=#FFFFFF
@@ -44,20 +44,20 @@ hi SpellBad gui=undercurl
 hi SpellCap gui=undercurl
 hi SpellLocal gui=undercurl
 hi SpellRare gui=undercurl
-hi Statement guifg=#FFBF00
+hi Statement guifg=#FFBF00 gui=NONE cterm=NONE term=NONE
 hi StatusLine guifg=black guibg=#c2bfa5
 hi StatusLineNC guifg=gray50 guibg=#c2bfa5
 hi String guifg=#FF77AD
 hi TabLine gui=underline guibg=darkgray
 hi TabLineFill gui=reverse
-hi TabLineSel gui=bold
+hi TabLineSel gui=NONE cterm=NONE term=NONE
 hi Title guifg=white
 hi Todo guifg=orangered guibg=yellow2
-hi Type guifg=gold
+hi Type guifg=gold gui=NONE cterm=NONE term=NONE
 hi Underlined gui=underline guifg=#80a0ff
 hi VertSplit guifg=gray50 guibg=#c2bfa5
-hi Visual guifg=khaki guibg=olivedrab
-hi VisualNOS gui=bold,underline
+hi Visual guibg=#3C3F41
+hi VisualNOS gui=NONE cterm=NONE term=NONE
 hi WarningMsg guifg=salmon
 hi WildMenu guifg=black guibg=yellow
 hi link Boolean Constant
