@@ -75,6 +75,7 @@ Plug 'wlangstroth/vim-racket'      " racket syntax etc, for dc/dcx files
 Plug 'vim-scripts/a.vim'           " open alternate file (h/cpp)
 Plug 'tikhomirov/vim-glsl'         " shader shading
 Plug 'AndrewRadev/linediff.vim'    " diff chunks of code
+" Plug 'zxqfl/tabnine-vim'           " autocomplete
 " Plug 'valloric/youcompleteme'
 " Plug 'vim-scripts/visual_studio.vim' " plz work
 call plug#end()
@@ -92,12 +93,26 @@ let g:lightline =
 
 
 " open current file in Windows explorer
-nmap <C-S-O> :!start explorer /select,%:p <CR>
+nmap <C-S-O> :!start explorer /select,%:p<CR>
+imap <C-S-O> <Esc> :!start explorer /select,%:p<CR>i
+vmap <C-S-O> <Esc> :!start explorer /select,%:p<CR>
 
 " save
-nmap <C-S> :w! <CR>
+nmap <C-S> :w!<CR>
+imap <C-S> <Esc>:w!<CR>li
+vmap <C-S> <Esc>:w!<CR>
 
 " undo/redo
 nmap <C-Z> u
+imap <C-Z> <Esc>ui
+vmap <C-Z> <Esc>u
 nmap <C-Y> <C-R>
+imap <C-Y> <Esc><C-R>i
+vmap <C-Y> <Esc><C-R>
+
+" cut/copy/paste with system clipboard
+vmap <C-C> "+yi
+vmap <C-X> "+c
+vmap <C-V> c<ESC>"+p
+imap <C-V> <C-r><C-o>+
 
