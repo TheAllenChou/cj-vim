@@ -80,5 +80,5 @@ let g:lightline = {
 
 
 " open current file in Windows explorer
-map <C-O> :!start explorer /select,%:p <CR>
+map <C-S-O> :!start explorer /select,%:p <CR>
 
