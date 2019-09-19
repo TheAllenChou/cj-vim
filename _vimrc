@@ -18,6 +18,7 @@ endif
 set number  " show line numbers
 set nowrap  " no word wrapping
 
+
 " dimensions
 if $NDCYGVER
   set lines=80
@@ -35,9 +36,11 @@ else
   set expandtab
 endif
 
+
 " show whitespaces
 set listchars=tab:»-,space:·
 set list
+
 
 " Python
 if $NDCYGVER
@@ -47,10 +50,11 @@ if $NDCYGVER
   let $PYTHONTHREEHOME='Z:\tools\binnt\python\python33\'
 endif
 
+
 " manually install https://github.com/junegunn/vim-plug
 " then restart vim and call PlugInstall to grab all these plugins
 call plug#begin('$VIM/vimfiles/plugged')
-" Make sure you use single quotes
+" make sure you use single quotes
 Plug 'nfvs/vim-perforce'           " automatic Perforce checkout
 Plug 'tomtom/tcomment_vim'         " nice comment handling
 Plug 'tpope/vim-surround'          " for controlling braces
@@ -65,4 +69,16 @@ Plug 'AndrewRadev/linediff.vim'    " diff chunks of code
 " Plug 'valloric/youcompleteme'
 " Plug 'vim-scripts/visual_studio.vim' " plz work
 call plug#end()
+
+
+" lightline
+set laststatus=2
+set noshowmode
+let g:lightline = {
+  \ 'colorscheme' : 'jellybeans', 
+  \ }
+
+
+" open current file in Windows explorer
+map <C-O> :!start explorer /select,%:p <CR>
 
