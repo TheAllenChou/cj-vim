@@ -45,7 +45,6 @@ else
   set expandtab
 endif
 
-
 " show whitespaces
 set listchars=tab:»-,space:·
 set list
@@ -115,4 +114,8 @@ vmap <C-C> "+yi
 vmap <C-X> "+c
 vmap <C-V> c<ESC>"+p
 imap <C-V> <C-r><C-o>+
+
+" move lines
+nmap <C-J> ddp
+nmap <C-K> ddkP
 
