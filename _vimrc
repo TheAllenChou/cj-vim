@@ -10,14 +10,21 @@ if has('gui_running')
   if has('gui_win32')
     " better than Inconsolata, liberation mono (this is what sublime uses)
     set guifont=Consolas:h10
-    colorscheme citrusnberries
   endif
-else
 endif
 
-set number  " show line numbers
-set nowrap  " no word wrapping
+colorscheme citrusnberries
 
+set number        " show line numbers
+set nowrap        " no word wrapping
+set backspace=2   " makes backspace do what you think it does
+set ruler         " show ruler"
+set scrolloff=4   " number of scroll context lines
+
+" disable bells
+set noerrorbells
+set novisualbell
+autocmd GUIEnter * set vb t_vb=
 
 " dimensions
 if $NDCYGVER
@@ -31,8 +38,10 @@ endif
 " indent
 if $NDCYGVER
   set tabstop=4
+  set shiftwidth=4
 else
   set tabstop=2
+  set shiftwidth=2
   set expandtab
 endif
 
@@ -70,15 +79,25 @@ Plug 'AndrewRadev/linediff.vim'    " diff chunks of code
 " Plug 'vim-scripts/visual_studio.vim' " plz work
 call plug#end()
 
+" tcomment
+map <F2> gcc
 
 " lightline
 set laststatus=2
 set noshowmode
-let g:lightline = {
+let g:lightline =
+  \ {
   \ 'colorscheme' : 'jellybeans', 
   \ }
 
 
 " open current file in Windows explorer
-map <C-S-O> :!start explorer /select,%:p <CR>
+nmap <C-S-O> :!start explorer /select,%:p <CR>
+
+" save
+nmap <C-S> :w! <CR>
+
+" undo/redo
+nmap <C-Z> u
+nmap <C-Y> <C-R>
 
