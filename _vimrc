@@ -109,9 +109,8 @@ nmap <C-Y> <C-R>
 imap <C-Y> <Esc><C-R>i
 vmap <C-Y> <Esc><C-R>
 
-" cut/copy/paste with system clipboard
+" copy/paste with system clipboard
 vmap <C-C> "+yi
-vmap <C-X> "+c
 vmap <C-V> c<ESC>"+p
 imap <C-V> <C-r><C-o>+
 
