@@ -30,7 +30,7 @@ hi MoreMsg guifg=seagreen
 hi NonText guifg=#808080
 hi Normal guifg=white guibg=#22282B
 hi Number guifg=#029BFF
-hi Pmenu guibg=magenta
+hi Pmenu guibg=#505050
 hi PmenuSbar guibg=grey
 hi PmenuSel guibg=darkgray
 hi PmenuThumb gui=reverse

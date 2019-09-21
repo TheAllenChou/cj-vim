@@ -15,11 +15,12 @@ endif
 
 colorscheme citrusnberries
 
-set number        " show line numbers
-set nowrap        " no word wrapping
-set backspace=2   " makes backspace do what you think it does
-set ruler         " show ruler"
-set scrolloff=4   " number of scroll context lines
+set number          " show line numbers
+set nowrap          " no word wrapping
+set backspace=2     " makes backspace do what you think it does
+set ruler           " show ruler"
+set scrolloff=4     " number of scroll context lines
+set encoding=utf-8  " use UTF-8 encoding
 
 " disable bells
 set noerrorbells
@@ -52,10 +53,10 @@ set list
 
 " Python
 if $NDCYGVER
-  set pythondll=Z:\tools\binnt\python\python27\python27.dll
-  set pythonthreedll=Z:\tools\binnt\python\python33\python33.dll
-  let $PYTHONHOM='Z:\tools\binnt\python\python27\'
-  let $PYTHONTHREEHOME='Z:\tools\binnt\python\python33\'
+  set pythondll=C:\Windows\System32\python27.dll
+  "set pythondll=Z:\tools\binnt\python\python27\python27.dll
+  "set pythonthreedll=C:\Python37\python37.dll
+  "set pythonthreedll=Z:\tools\binnt\python\Python33\python33.dll
 endif
 
 
@@ -74,7 +75,7 @@ Plug 'wlangstroth/vim-racket'      " racket syntax etc, for dc/dcx files
 Plug 'vim-scripts/a.vim'           " open alternate file (h/cpp)
 Plug 'tikhomirov/vim-glsl'         " shader shading
 Plug 'AndrewRadev/linediff.vim'    " diff chunks of code
-" Plug 'zxqfl/tabnine-vim'           " autocomplete
+Plug 'zxqfl/tabnine-vim'           " autocomplete
 " Plug 'valloric/youcompleteme'
 " Plug 'vim-scripts/visual_studio.vim' " plz work
 call plug#end()
