@@ -11,6 +11,14 @@ if has('gui_running')
     " better than Inconsolata, liberation mono (this is what sublime uses)
     set guifont=Consolas:h10
   endif
+    " dimensions
+    if $NDCYGVER
+      set lines=80
+      set columns=150
+    else
+      set lines=60
+      set columns=200
+  endif
 endif
 
 colorscheme citrusnberries
@@ -26,15 +34,6 @@ set encoding=utf-8  " use UTF-8 encoding
 set noerrorbells
 set novisualbell
 autocmd GUIEnter * set vb t_vb=
-
-" dimensions
-if $NDCYGVER
-  set lines=80
-  set columns=150
-else
-  set lines=60
-  set columns=150
-endif
 
 " indent
 if $NDCYGVER
