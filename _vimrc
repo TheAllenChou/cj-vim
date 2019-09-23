@@ -74,13 +74,14 @@ Plug 'wlangstroth/vim-racket'      " racket syntax etc, for dc/dcx files
 Plug 'vim-scripts/a.vim'           " open alternate file (h/cpp)
 Plug 'tikhomirov/vim-glsl'         " shader shading
 Plug 'AndrewRadev/linediff.vim'    " diff chunks of code
-Plug 'zxqfl/tabnine-vim'           " autocomplete
-" Plug 'valloric/youcompleteme'
+Plug 'neoclide/coc.nvim', { 'branch' : 'release' }  " autocomplete
+" Plug 'zxqfl/tabnine-vim'           " autocomplete
+" Plug 'valloric/youcompleteme'      " autocomplete
 " Plug 'vim-scripts/visual_studio.vim' " plz work
 call plug#end()
 
 " tcomment
-map <F2> gcc
+vnoremap <F2> gcc
 
 " lightline
 set laststatus=2
@@ -90,31 +91,40 @@ let g:lightline =
   \ 'colorscheme' : 'jellybeans', 
   \ }
 
+" coc
+" use <tab> for trigger completion and navigate to the next complete item
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " open current file in Windows explorer
-nmap <C-S-O> :!start explorer /select,%:p<CR>
-imap <C-S-O> <Esc> :!start explorer /select,%:p<CR>i
-vmap <C-S-O> <Esc> :!start explorer /select,%:p<CR>
+
+nnoremap <C-S-O> :!start explorer /select,%:p<CR>
+inoremap <C-S-O> <Esc> :!start explorer /select,%:p<CR>i
+vnoremap <C-S-O> <Esc> :!start explorer /select,%:p<CR>
 
 " save
-nmap <C-S> :w!<CR>
-imap <C-S> <Esc>:w!<CR>li
-vmap <C-S> <Esc>:w!<CR>
+nnoremap <C-S> :w!<CR>
+inoremap <C-S> <Esc>:w!<CR>li
+vnoremap <C-S> <Esc>:w!<CR>
 
 " undo/redo
-nmap <C-Z> u
-imap <C-Z> <Esc>ui
-vmap <C-Z> <Esc>u
-nmap <C-Y> <C-R>
-imap <C-Y> <Esc><C-R>i
-vmap <C-Y> <Esc><C-R>
+" nnoremap <C-Z> u
+" inoremap <C-Z> <Esc>ui
+" vnoremap <C-Z> <Esc>u
+" nnoremap <C-Y> <C-R>
+" inoremap <C-Y> <Esc><C-R>i
+" vnoremap <C-Y> <Esc><C-R>
 
 " copy/paste with system clipboard
-vmap <C-C> "+yi
-vmap <C-V> c<ESC>"+p
-imap <C-V> <C-r><C-o>+
+vnoremap <C-C> "+yi
+vnoremap <C-V> c<ESC>"+p
+inoremap <C-V> <C-R><C-O>+
 
 " move lines
-nmap <C-J> ddp
-nmap <C-K> ddkP
+nnoremap <C-J> mk:m 'k+1<CR>
+nnoremap <C-K> mk:m 'k-2<CR>
+vnoremap <C-J> <Esc>`>mk`<v`>:m 'k+1<CR>`<v`>
+vnoremap <C-K> <Esc>`<mk`>v`<:m 'k-2<CR>`<v`>
 
