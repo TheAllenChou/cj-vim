@@ -10,7 +10,6 @@ if has('gui_running')
   if has('gui_win32')
     " better than Inconsolata, liberation mono (this is what sublime uses)
     set guifont=Consolas:h10
-  endif
     " dimensions
     if $NDCYGVER
       set lines=80
@@ -18,6 +17,7 @@ if has('gui_running')
     else
       set lines=60
       set columns=200
+    endif
   endif
 endif
 
@@ -50,7 +50,7 @@ set listchars=tab:»-,space:·
 set list
 
 
-" Python
+" python
 if $NDCYGVER
   set pythondll=C:\Windows\System32\python27.dll
   "set pythondll=Z:\tools\binnt\python\python27\python27.dll
@@ -58,6 +58,25 @@ if $NDCYGVER
   "set pythonthreedll=Z:\tools\binnt\python\Python33\python33.dll
 endif
 
+
+" path & working directory
+if $GAMENAME != ""
+  let g:ndGame= $GAMENAME
+  let g:ndBranch = $GAMEBRANCH
+  let g:ndPath = 'c:\perforce\' . g:ndBranch . '\' . g:ndGame
+
+  let &path = ""
+  let &path .= ',' . g:ndPath . '\shared\src\'
+  let &path .= ',' . g:ndPath . '\shared\src\**'
+  let &path .= ',' . g:ndPath . '\' . g:ndGame . '\src\'
+  let &path .= ',' . g:ndPath . '\' . g:ndGame . '\src\**'
+  let &path .= ',c:\build\achou\' . g:ndBranch . '\dcx\dch\' . g:ndGame . '\src\'
+  let &path .= ',c:\build\achou\' . g:ndBranch . '\dcx\dch\' . g:ndGame . '\src\**'
+  let &path .= ',c:\build\achou\' . g:ndBranch . '\dcx\dch\shared\src\ndlib\scriptx\h\'
+  let &path .= ',c:\build\achou\' . g:ndBranch . '\dcx\dch\shared\src\ndlib\scriptx\h\**'
+
+  exec ":cd " . g:ndPath
+endif
 
 " manually install https://github.com/junegunn/vim-plug
 " then restart vim and call PlugInstall to grab all these plugins
@@ -74,6 +93,7 @@ Plug 'wlangstroth/vim-racket'      " racket syntax etc, for dc/dcx files
 Plug 'vim-scripts/a.vim'           " open alternate file (h/cpp)
 Plug 'tikhomirov/vim-glsl'         " shader shading
 Plug 'AndrewRadev/linediff.vim'    " diff chunks of code
+Plug 'scrooloose/nerdtree'         " file explorer
 Plug 'neoclide/coc.nvim', { 'branch' : 'release' }  " autocomplete
 " Plug 'zxqfl/tabnine-vim'           " autocomplete
 " Plug 'valloric/youcompleteme'      " autocomplete
