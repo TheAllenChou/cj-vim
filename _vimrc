@@ -21,6 +21,8 @@ if has('gui_running')
   endif
 endif
 
+set termguicolors
+
 colorscheme citrusnberries
 
 set number          " show line numbers
